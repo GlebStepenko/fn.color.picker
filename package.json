@@ -6,7 +6,7 @@
     "lib.build": "ng build library",
     "lib.watch": "ng build library --watch --configuration development",
     "lib.test": "ng test library",
-    "app.start": "ng serve test.application",
+    "app.start": "ng serve test.application --port 4203",
     "npm.publish": "cd dist/library && npm publish"
   },
   "private": true,
@@ -20,7 +20,7 @@
     "@angular/material": "~17.3.6",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
-
+    "ngx-color": "^9.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

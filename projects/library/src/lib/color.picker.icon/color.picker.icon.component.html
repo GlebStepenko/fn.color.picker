@@ -8,7 +8,7 @@
 
 <mat-menu #menu="matMenu" [class]="panelClass()">
  <fn-color-picker-default-panel
-  [colors]="colors()"
+  [colors]="colorsPalette()"
   (colorClick)="onColorChange($event)" />
  <div class="container-other-color">
   <button mat-button class="button-other-color" (click)="otherColorClick($event)" [title]="anotherColorTitle()">

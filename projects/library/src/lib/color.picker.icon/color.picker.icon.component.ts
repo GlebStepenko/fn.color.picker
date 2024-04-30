@@ -35,7 +35,8 @@ type ModelTouchedFunction = () => void;
   ],
 })
 export class ColorPickerIconComponent implements ControlValueAccessor{
-  colors = input<Array<string>>(constDefaultColors)
+  color = input<string>();
+  colorsPalette = input<Array<string>>(constDefaultColors);
   customIcon= input<TemplateRef<unknown> | null>(null);
   panelClass = input<string>('');
   anotherColorTitle = input<string>('Choose a color not from the palette');
@@ -48,6 +49,12 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   currentColor: string = '';
   isDisabled: boolean = false;
   constructor(private readonly _d: MatDialog) {
+    effect(() => {
+      const color = this.color();
+      if (color) {
+        this.currentColor = color
+      }
+    });
   }
 
   onModelChange: ModelChangeFunction = () => {};
