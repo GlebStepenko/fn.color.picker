@@ -1,12 +1,29 @@
 {
-  "name": "library",
+  "name": "@gleb216/fn.color.picker",
   "version": "0.0.1",
+  "description": "angular library for select color",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
+    "@angular/core": "^17.3.0",
+    "@angular/material": "^17.3.6",
+    "ngx-color": "^9.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "author": {
+    "name": "Glib Stepenko"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "angular",
+    "angular library",
+    "colorpicker",
+    "color picker",
+    "color picker icon"
+  ]
 }

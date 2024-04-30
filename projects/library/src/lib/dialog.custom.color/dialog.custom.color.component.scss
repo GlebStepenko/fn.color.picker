@@ -1,0 +1,25 @@
+:host ::ng-deep color-sketch .sketch-picker{
+	box-shadow: none;
+}
+:host ::ng-deep color-chrome .chrome-picker{
+	box-shadow: none;
+	width: unset;
+}
+:host ::ng-deep color-chrome .chrome-toggle{
+	display: none;
+}
+
+color-chrome:focus{
+	outline: 0;
+}
+
+.button-select{
+	padding: 0.5em 1em;
+	float: right;
+}
+
+mat-dialog-actions{
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+}

@@ -1,0 +1,9 @@
+<mat-dialog-content>
+<color-chrome
+ [color]="color" tabindex="1"
+ (onChangeComplete)="color = $event.color.hex"/>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+ <button [mat-dialog-close]="color" mat-stroked-button  class="button-select">Ок</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,8 @@
+@for (color of colors(); let index = $index; track index;) {
+ <div
+  class="default-color-circle"
+  [style.background-Color]="color"
+  (click)="$event.stopImmediatePropagation();  onColorSelect.emit(color)"
+ ></div>
+}
+

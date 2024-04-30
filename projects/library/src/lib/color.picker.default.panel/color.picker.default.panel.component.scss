@@ -1,0 +1,19 @@
+:host{
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	max-width: 170px;
+	padding: 0.3em;
+}
+
+.default-color-circle{
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	margin: 0.3em;
+	box-sizing: border-box;
+}
+
+.default-color-circle:hover{
+	border: solid 1px black;
+	cursor: pointer;
+}

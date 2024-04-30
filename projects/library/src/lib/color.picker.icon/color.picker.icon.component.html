@@ -1,0 +1,20 @@
+<button mat-icon-button [matMenuTriggerFor]="menu"  [style.color]="currentColor" #menuTrigger="matMenuTrigger" [disabled]="isDisabled"  class="button-root" >
+ @if (!!customIcon()) {
+  <ng-container [ngTemplateOutlet]="customIcon()"/>
+ } @else {
+  <mat-icon>palette</mat-icon>
+ }
+</button>
+
+<mat-menu #menu="matMenu" [class]="panelClass()">
+ <fn-color-picker-default-panel
+  [colors]="colors()"
+  (colorClick)="onColorChange($event)" />
+ <div class="container-other-color">
+  <button mat-button class="button-other-color" (click)="otherColorClick($event)" [title]="anotherColorTitle()">
+   <mat-icon class="button-icon">palette</mat-icon>
+   <span>{{anotherColorText()}}</span>
+  </button>
+  <div class="button-remove" [style.background-Color]="currentColor" (click)="onColorChange('')" [title]="removeTitle"></div>
+ </div>
+</mat-menu>

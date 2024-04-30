@@ -63,6 +63,7 @@
               "projects/test.application/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "projects/test.application/src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,7 @@
               "projects/test.application/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test.application/src/styles.scss"
             ],
             "scripts": []

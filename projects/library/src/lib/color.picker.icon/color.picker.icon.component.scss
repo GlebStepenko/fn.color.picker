@@ -1,0 +1,35 @@
+.container-other-color{
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+.button-icon{
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	opacity: 0.8;
+}
+
+
+.button-remove{
+	width: 20px;
+	height: 20px;
+	margin: 0 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid #b0b0b0;
+}
+.button-remove:after{
+	content: 'x';
+	margin-left: 12px;
+	display: block;
+	margin-top: 4px;
+	font-size: 0.75rem;
+	opacity: 0.7;
+}
+
+.button-root:disabled{
+	opacity: 0.4;
+
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibraryComponent } from './library.component';
+import { ColorPickerIconComponent } from './color.picker.icon.component';
 
-describe('LibraryComponent', () => {
-  let component: LibraryComponent;
-  let fixture: ComponentFixture<LibraryComponent>;
+describe('ColorPickerIconComponent', () => {
+  let component: ColorPickerIconComponent;
+  let fixture: ComponentFixture<ColorPickerIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LibraryComponent]
+      imports: [ColorPickerIconComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LibraryComponent);
+    fixture = TestBed.createComponent(ColorPickerIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
