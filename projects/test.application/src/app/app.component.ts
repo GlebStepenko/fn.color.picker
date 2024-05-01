@@ -25,9 +25,10 @@ interface IControlForm {
 export class AppComponent {
   title = 'test.application';
   formData: FormGroup<IControlForm>;
+  curColor?: string;
   constructor() {
     this.formData = new FormGroup<IControlForm>({
-      color1: new FormControl({value: 'red', disabled: false}, {nonNullable: true}),
+      color1: new FormControl({value: '', disabled: false}, {nonNullable: true}),
     });
   }
 
@@ -43,9 +44,18 @@ export class AppComponent {
     console.log(color);
   }
   
-  changeColor() {
+  changeColorReactive() {
     this.formData.patchValue({
       color1: 'green'
     })
   }
+  
+  changeColor() {
+    this.curColor = 'red'
+  }
+  changeColorBlue() {
+    this.curColor = 'blue'
+  }
+  
+  
 }

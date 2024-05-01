@@ -6,7 +6,7 @@
     "lib.build": "ng build library",
     "lib.watch": "ng build library --watch --configuration development",
     "lib.test": "ng test library",
-    "app.start": "ng serve test.application --port 4203",
+    "app.start": "ng serve test.application --port 4204",
     "npm.publish": "cd dist/library && npm publish"
   },
   "private": true,

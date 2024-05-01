@@ -50,10 +50,7 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   isDisabled: boolean = false;
   constructor(private readonly _d: MatDialog) {
     effect(() => {
-      const color = this.color();
-      if (color) {
-        this.currentColor = color
-      }
+      this.currentColor = this.color() ?? ''
     });
   }
 

@@ -1,6 +1,7 @@
 <main class="main"  [formGroup]="formData">
  <fn-color-picker-icon
-  [customIcon]="customIconTemplate"
+  [color]="curColor"
+
   formControlName="color1"
   (colorChanged)="onColorChanged($event)"
  />
@@ -10,11 +11,20 @@
  </button>
 
  <button mat-button class="button-other-color" (click)="changeColor()">
+  <span>set red</span>
+ </button>
+
+ <button mat-button class="button-other-color" (click)="changeColorBlue()">
+  <span>set blue</span>
+ </button>
+
+ <button mat-button class="button-other-color" (click)="changeColorReactive()">
   <span>set green</span>
  </button>
 </main>
 
-<ng-template #customIconTemplate>
- <mat-icon>search</mat-icon>
-</ng-template>
+<!--<ng-template #customIconTemplate>-->
+<!-- <mat-icon>search</mat-icon>-->
+<!--</ng-template>-->
 
+<!--[customIcon]="customIconTemplate"-->
