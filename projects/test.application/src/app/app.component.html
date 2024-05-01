@@ -1,7 +1,7 @@
 <main class="main"  [formGroup]="formData">
  <fn-color-picker-icon
   [color]="curColor"
-
+  [disabled]="isDisabled"
   formControlName="color1"
   (colorChanged)="onColorChanged($event)"
  />
@@ -20,6 +20,10 @@
 
  <button mat-button class="button-other-color" (click)="changeColorReactive()">
   <span>set green</span>
+ </button>
+
+ <button mat-button class="button-other-color" (click)="changeDisabledInput()">
+  <span>changeDisabledInput</span>
  </button>
 </main>
 

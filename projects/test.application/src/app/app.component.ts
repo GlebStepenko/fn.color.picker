@@ -26,6 +26,7 @@ export class AppComponent {
   title = 'test.application';
   formData: FormGroup<IControlForm>;
   curColor?: string;
+  isDisabled: boolean = false;
   constructor() {
     this.formData = new FormGroup<IControlForm>({
       color1: new FormControl({value: '', disabled: false}, {nonNullable: true}),
@@ -38,6 +39,10 @@ export class AppComponent {
     }else {
       this.formData.controls.color1.disable()
     }
+  }
+  
+  changeDisabledInput() {
+    this.isDisabled = !this.isDisabled;
   }
   
   onColorChanged(color: string): void {

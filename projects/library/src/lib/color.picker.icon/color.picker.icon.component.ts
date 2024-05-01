@@ -39,6 +39,7 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   colorsPalette = input<Array<string>>(constDefaultColors);
   customIcon= input<TemplateRef<unknown> | null>(null);
   panelClass = input<string>('');
+  disabled = input<boolean>(false);
   anotherColorTitle = input<string>('Choose a color not from the palette');
   anotherColorText = input<string>('Another color');
   removeTitle = input<string>('Remove color');
@@ -51,6 +52,10 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   constructor(private readonly _d: MatDialog) {
     effect(() => {
       this.currentColor = this.color() ?? ''
+    });
+    
+    effect(() => {
+      this.setDisabledState(this.disabled() ?? false)
     });
   }
 
@@ -94,7 +99,6 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
-    console.log(isDisabled);
   }
 
 }
