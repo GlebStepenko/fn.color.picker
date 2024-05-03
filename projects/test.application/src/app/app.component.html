@@ -2,10 +2,16 @@
  <fn-color-picker-icon
   [color]="curColor"
   [disabled]="isDisabled"
-  formControlName="color1"
+
   (colorChanged)="onColorChanged($event)"
  />
 
+ @for (obj of colorList; track $index) {
+  <fn-color-picker-icon
+   [color]="obj.color"
+  />
+ }
+ <!--  formControlName="color1"-->
  <button mat-button class="button-other-color" (click)="changeDisabled()">
   <span>change Disabled</span>
  </button>
@@ -24,6 +30,15 @@
 
  <button mat-button class="button-other-color" (click)="changeDisabledInput()">
   <span>changeDisabledInput</span>
+ </button>
+
+
+ <button mat-button class="button-other-color" (click)="generate()">
+  <span>generate</span>
+ </button>
+
+ <button mat-button class="button-other-color" (click)="change2()">
+  <span>change2</span>
  </button>
 </main>
 

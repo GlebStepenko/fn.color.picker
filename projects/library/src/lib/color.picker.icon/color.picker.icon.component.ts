@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, effect, forwardRef, HostBinding, input, OnInit, output, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, effect, forwardRef, HostBinding, input, output, TemplateRef, ViewChild} from '@angular/core';
 import {MatMenu, MatMenuTrigger} from '@angular/material/menu';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {NgTemplateOutlet} from '@angular/common';
@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {finalize} from 'rxjs';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {constDefaultColors} from '../library.const';
+
 
 type ModelChangeFunction = (value: string) => void;
 type ModelTouchedFunction = () => void;
@@ -49,14 +50,15 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   currentColor: string = '';
   isDisabled: boolean = false;
-  constructor(private readonly _d: MatDialog) {
+  constructor(private readonly _d: MatDialog, private readonly _ref: ChangeDetectorRef) {
     effect(() => {
       const newColor = this.color();
       if (newColor !== undefined) {
         this.currentColor = newColor;
+        this._ref.markForCheck();
       }
     });
-    
+
     effect(() => {
       this.setDisabledState(this.disabled() ?? false)
     });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {MatIcon} from '@angular/material/icon';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
@@ -20,14 +20,17 @@ interface IControlForm {
     MatIcon
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'test.application';
   formData: FormGroup<IControlForm>;
-  curColor?: string;
+  curColor?: string = 'green';
   isDisabled: boolean = false;
-  constructor() {
+  
+  colorList: Array<{ name: string; color: string}> = [];
+  constructor(private readonly _ref: ChangeDetectorRef) {
     this.formData = new FormGroup<IControlForm>({
       color1: new FormControl({value: '', disabled: false}, {nonNullable: true}),
     });
@@ -61,6 +64,33 @@ export class AppComponent {
   changeColorBlue() {
     this.curColor = 'blue'
   }
+  
+  
+  
+  generate() {
+    this.colorList.push({
+      name: 'red',
+      color: 'red'
+    });
+    
+    
+    this.colorList.push({
+      name: 'green',
+      color: 'green'
+    });
+    
+    this.colorList.push({
+      name: 'black',
+      color: 'black'
+    });
+    // this._ref.markForCheck()
+    // this._ref.detectChanges()
+
+  }
+  change2() {
+    this.colorList[1].color = 'orange'
+  }
+  
   
   
 }
