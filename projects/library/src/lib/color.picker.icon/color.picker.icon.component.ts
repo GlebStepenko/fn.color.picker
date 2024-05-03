@@ -1,4 +1,4 @@
-import {Component, effect, forwardRef, HostBinding, input, output, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, effect, forwardRef, HostBinding, input, OnInit, output, TemplateRef, ViewChild} from '@angular/core';
 import {MatMenu, MatMenuTrigger} from '@angular/material/menu';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {NgTemplateOutlet} from '@angular/common';
@@ -51,7 +51,10 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   isDisabled: boolean = false;
   constructor(private readonly _d: MatDialog) {
     effect(() => {
-      this.currentColor = this.color() ?? ''
+      const newColor = this.color();
+      if (newColor !== undefined) {
+        this.currentColor = newColor;
+      }
     });
     
     effect(() => {
@@ -100,5 +103,4 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
-
 }
