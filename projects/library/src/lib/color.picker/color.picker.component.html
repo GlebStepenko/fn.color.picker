@@ -1,0 +1,9 @@
+<fn-color-picker-default-panel (colorClick)="onColorChange($event)"/>
+<div class="container-other-color">
+ <div class="color-preview" [style.background-color]="color" (click)="otherColorClick($event)"></div>
+ @if (!!color) {
+  <button mat-icon-button (click)="onColorChange('')" [title]="anotherColorTitle()">
+   <mat-icon>clear</mat-icon>
+  </button>
+ }
+</div>

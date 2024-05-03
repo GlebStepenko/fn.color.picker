@@ -3,6 +3,7 @@ import {MatIcon} from '@angular/material/icon';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {ColorPickerIconComponent} from '../../../library/src/lib/color.picker.icon/color.picker.icon.component';
+import {ColorPickerComponent} from '../../../library/src/lib/color.picker/color.picker.component';
 
 
 interface IControlForm {
@@ -14,6 +15,7 @@ interface IControlForm {
   standalone: true,
   imports: [
     ColorPickerIconComponent,
+    ColorPickerComponent,
     MatIcon,
     ReactiveFormsModule,
     MatButton,
