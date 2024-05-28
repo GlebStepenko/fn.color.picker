@@ -15,6 +15,6 @@
    <mat-icon class="button-icon">palette</mat-icon>
    <span>{{anotherColorText()}}</span>
   </button>
-  <div class="button-remove" [style.background-Color]="currentColor" (click)="onColorChange('')" [title]="removeTitle"></div>
+  <div class="button-remove" [style.background-Color]="currentColor" (click)="onColorChange('')" [title]="removeTitle()"></div>
  </div>
 </mat-menu>
