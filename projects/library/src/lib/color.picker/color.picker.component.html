@@ -2,7 +2,7 @@
 <div class="container-other-color">
  <div class="color-preview" [style.background-color]="color" (click)="otherColorClick($event)"></div>
  @if (!!color) {
-  <button mat-icon-button (click)="onColorChange('')" [title]="anotherColorTitle()">
+  <button mat-icon-button (click)="onColorChange('')" [title]="anotherColorTitle()" type="button">
    <mat-icon>clear</mat-icon>
   </button>
  }

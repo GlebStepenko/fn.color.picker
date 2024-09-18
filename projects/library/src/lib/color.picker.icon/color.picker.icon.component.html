@@ -1,4 +1,4 @@
-<button mat-icon-button [matMenuTriggerFor]="menu"  [style.color]="currentColor" #menuTrigger="matMenuTrigger" [disabled]="isDisabled"  class="button-root" >
+<button mat-icon-button [matMenuTriggerFor]="menu"  [style.color]="currentColor" #menuTrigger="matMenuTrigger" [disabled]="isDisabled"  class="button-root" type="button" >
  @if (!!customIcon()) {
   <ng-container [ngTemplateOutlet]="customIcon()"/>
  } @else {

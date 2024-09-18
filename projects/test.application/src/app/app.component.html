@@ -42,6 +42,19 @@
  <button mat-button class="button-other-color" (click)="change2()">
   <span>change2</span>
  </button>
+
+
+ <section >
+  <form class="container-main" [formGroup]="formData" (ngSubmit)="onSubmit()">
+   <fn-color-picker-icon
+    formControlName="color1"
+   />
+
+   <button mat-flat-button  color="primary"  type="submit">Go</button>
+  </form>
+
+ </section>
+
 </main>
 
 <!--<ng-template #customIconTemplate>-->

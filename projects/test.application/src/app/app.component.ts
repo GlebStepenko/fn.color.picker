@@ -94,5 +94,10 @@ export class AppComponent {
   }
   
   
+  onSubmit() {
+    console.log('onSubmit');
+  }
+  
+  
   
 }
