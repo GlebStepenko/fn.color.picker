@@ -15,10 +15,8 @@ interface IControlForm {
   imports: [
     ColorPickerIconComponent,
     ColorPickerComponent,
-    MatIcon,
     ReactiveFormsModule,
     MatButton,
-    MatIcon
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

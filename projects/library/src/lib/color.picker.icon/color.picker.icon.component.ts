@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, effect, forwardRef, HostBinding, input, output, TemplateRef, ViewChild} from '@angular/core';
+import {booleanAttribute, ChangeDetectorRef, Component, effect, forwardRef, HostBinding, input, linkedSignal, output, TemplateRef, ViewChild} from '@angular/core';
 import {MatMenu, MatMenuTrigger} from '@angular/material/menu';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {NgTemplateOutlet} from '@angular/common';
@@ -39,7 +39,7 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   colorsPalette = input<Array<string>>(constDefaultColors);
   customIcon= input<TemplateRef<unknown> | null>(null);
   panelClass = input<string>('');
-  disabled = input<boolean>(false);
+  disabled = input(false, {transform: booleanAttribute});
   anotherColorTitle = input<string>('Choose a color not from the palette');
   anotherColorText = input<string>('Another color');
   removeTitle = input<string>('Remove color');
@@ -48,7 +48,7 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   @HostBinding('class') classes = this.panelClass();
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   currentColor: string = '';
-  isDisabled: boolean = false;
+  isDisabled = linkedSignal(this.disabled);
   constructor(private readonly _d: MatDialog, private readonly _ref: ChangeDetectorRef) {
     effect(() => {
       const newColor = this.color();
@@ -57,9 +57,13 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
         this._ref.markForCheck();
       }
     });
+    
+    effect(() => {
+      console.log(this.disabled())
+    });
 
     effect(() => {
-      this.setDisabledState(this.disabled() ?? false)
+      this.setDisabledState(this.isDisabled())
     });
   }
 
@@ -102,6 +106,6 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+    this.isDisabled.set(isDisabled);
   }
 }
