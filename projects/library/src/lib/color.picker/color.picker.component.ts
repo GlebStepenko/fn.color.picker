@@ -11,7 +11,6 @@ type ModelTouchedFunction = () => void;
 
 @Component({
   selector: 'fn-color-picker',
-  standalone: true,
   imports: [
     ColorPickerDefaultPanelComponent,
     MatIconButton,
@@ -26,7 +25,7 @@ type ModelTouchedFunction = () => void;
       useExisting: forwardRef(() => ColorPickerComponent),
       multi: true
     }
-  ],
+  ]
 })
 export class ColorPickerComponent implements ControlValueAccessor  {
   anotherColorTitle = input<string>('Choose a color not from the palette');

@@ -9,7 +9,6 @@ interface IDialogCustomColorComponentInput{
 
 @Component({
   selector: 'fn-dialog-custom-color',
-  standalone: true,
   imports: [
     ColorChromeModule,
     MatButton,
