@@ -57,10 +57,6 @@ export class ColorPickerIconComponent implements ControlValueAccessor{
         this._ref.markForCheck();
       }
     });
-    
-    effect(() => {
-      console.log(this.disabled())
-    });
 
     effect(() => {
       this.setDisabledState(this.isDisabled())

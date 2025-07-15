@@ -1,6 +1,6 @@
 {
   "name": "@gleb216/fn.color.picker",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "angular library for select color",
   "license": "MIT",
   "peerDependencies": {
