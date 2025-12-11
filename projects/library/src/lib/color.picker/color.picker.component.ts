@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, input, output, ViewChild} from '@angular/core';
+import {booleanAttribute, ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, inject, input, linkedSignal, output, ViewChild} from '@angular/core';
 import {ColorPickerDefaultPanelComponent} from '../color.picker.default.panel/color.picker.default.panel.component';
 import {MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
@@ -29,12 +29,13 @@ type ModelTouchedFunction = () => void;
 })
 export class ColorPickerComponent implements ControlValueAccessor  {
   anotherColorTitle = input<string>('Choose a color not from the palette');
+  disabled = input(false, {transform: booleanAttribute});
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   colorChanged = output<string>();
   color?: string;
-
-  constructor(private readonly _ref: ChangeDetectorRef, private readonly _d: MatDialog) {
-  }
+  readonly isDisabled = linkedSignal(this.disabled);
+  readonly #ref = inject(ChangeDetectorRef);
+  readonly #dialog = inject(MatDialog);
 
   onModelChange: ModelChangeFunction = () => {};
   onModelTouched: ModelTouchedFunction = () => {};
@@ -42,28 +43,32 @@ export class ColorPickerComponent implements ControlValueAccessor  {
   registerOnChange(fn: (data: string) => void): void {
     this.onModelChange = fn;
   }
-  
+
   registerOnTouched(fn: () => void): void {
     this.onModelTouched = fn;
   }
-  
+
   writeValue(obj: string): void {
     this.color = obj;
   }
-  
+
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled.set(isDisabled);
+  }
+
   onColorChange(color: string): void {
     this.color = color;
     this.onModelChange(color);
-    this._ref.detectChanges();
+    this.#ref.detectChanges();
     if (this.colorChanged) {
       this.colorChanged.emit(color);
     }
   }
-  
+
   async otherColorClick(event: MouseEvent): Promise<void> {
     event.stopImmediatePropagation();
     const { DialogCustomColorComponent } = await import( '../dialog.custom.color/dialog.custom.color.component');
-    this._d.open(DialogCustomColorComponent.getDialog(), {
+    this.#dialog.open(DialogCustomColorComponent.getDialog(), {
       width: '250px',
       data: {
         color: this.color

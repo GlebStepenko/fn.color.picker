@@ -1,60 +1,63 @@
 <main class="main"  [formGroup]="formData">
- <fn-color-picker/>
+  <fn-color-picker/>
 
- <fn-color-picker-icon
-  [color]="curColor"
-  [disabled]="isDisabled"
-
-  (colorChanged)="onColorChanged($event)"
- />
-
- @for (obj of colorList; track $index) {
   <fn-color-picker-icon
-   disabled="true"
-   [color]="obj.color"
+    [color]="curColor"
+    [disabled]="isDisabled"
+
+    (colorChanged)="onColorChanged($event)"
   />
- }
- <!--  formControlName="color1"-->
- <button mat-button class="button-other-color" (click)="changeDisabled()">
-  <span>change Disabled</span>
- </button>
 
- <button mat-button class="button-other-color" (click)="changeColor()">
-  <span>set red</span>
- </button>
+  @for (obj of colorList; track $index) {
+    <fn-color-picker-icon
+      disabled="true"
+      [color]="obj.color"
+    />
+  }
+  <!--  formControlName="color1"-->
+  <button mat-button class="button-other-color" (click)="changeDisabled()">
+    <span>change Disabled</span>
+  </button>
 
- <button mat-button class="button-other-color" (click)="changeColorBlue()">
-  <span>set blue</span>
- </button>
+  <button mat-button class="button-other-color" (click)="changeColor()">
+    <span>set red</span>
+  </button>
 
- <button mat-button class="button-other-color" (click)="changeColorReactive()">
-  <span>set green</span>
- </button>
+  <button mat-button class="button-other-color" (click)="changeColorBlue()">
+    <span>set blue</span>
+  </button>
 
- <button mat-button class="button-other-color" (click)="changeDisabledInput()">
-  <span>changeDisabledInput</span>
- </button>
+  <button mat-button class="button-other-color" (click)="changeColorReactive()">
+    <span>set green</span>
+  </button>
 
-
- <button mat-button class="button-other-color" (click)="generate()">
-  <span>generate</span>
- </button>
-
- <button mat-button class="button-other-color" (click)="change2()">
-  <span>change2</span>
- </button>
+  <button mat-button class="button-other-color" (click)="changeDisabledInput()">
+    <span>changeDisabledInput</span>
+  </button>
 
 
- <section >
-  <form class="container-main" [formGroup]="formData" (ngSubmit)="onSubmit()">
-   <fn-color-picker-icon
-    formControlName="color1"
-   />
+  <button mat-button class="button-other-color" (click)="generate()">
+    <span>generate</span>
+  </button>
 
-   <button mat-flat-button  color="primary"  type="submit">Go</button>
-  </form>
+  <button mat-button class="button-other-color" (click)="change2()">
+    <span>change2</span>
+  </button>
 
- </section>
+
+  <section >
+    <form class="container-main" [formGroup]="formData" (ngSubmit)="onSubmit()">
+      <fn-color-picker-icon
+        formControlName="color1"/>
+
+      <fn-color-picker
+        formControlName="color0"
+      />
+
+      <button mat-flat-button  color="primary"  type="submit">Go</button>
+    </form>
+
+  </section>
 
 </main>
 

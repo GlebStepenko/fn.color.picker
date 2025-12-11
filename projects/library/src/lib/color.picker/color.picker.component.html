@@ -1,8 +1,8 @@
-<fn-color-picker-default-panel (colorClick)="onColorChange($event)"/>
+<fn-color-picker-default-panel (colorClick)="onColorChange($event)" [disabled]="isDisabled()"/>
 <div class="container-other-color">
- <div class="color-preview" [style.background-color]="color" (click)="otherColorClick($event)"></div>
+ <div class="color-preview" [style.background-color]="color" [style.pointer-events]="!isDisabled() ? 'auto' : 'none'" (click)="otherColorClick($event)"></div>
  @if (!!color) {
-  <button mat-icon-button (click)="onColorChange('')" [title]="anotherColorTitle()" type="button">
+  <button mat-icon-button (click)="onColorChange('')" [title]="anotherColorTitle()" type="button" [disabled]="isDisabled()">
    <mat-icon>clear</mat-icon>
   </button>
  }

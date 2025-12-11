@@ -1,8 +1,10 @@
 @for (color of colors(); let index = $index; track index;) {
- <div
-  class="default-color-circle"
-  [style.background-Color]="color"
-  (click)="$event.stopImmediatePropagation();  onColorSelect.emit(color)"
- ></div>
+  <div
+    [class.is-disabled]="disabled()"
+    [style.pointer-events]="!disabled() ? 'auto' : 'none'"
+    class="default-color-circle"
+    [style.background-Color]="color"
+    (click)="$event.stopImmediatePropagation();  onColorSelect.emit(color)">
+  </div>
 }
 
